@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace gestao_de_locacao.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    
     public class UsuariosController : Controller
     {
         private readonly AppDbContext _context;
@@ -28,13 +28,13 @@ namespace gestao_de_locacao.Controllers
               return View(await _context.Usuarios.ToListAsync());
         }
 
-        [AllowAnonymous]
+       
         public IActionResult AcessDenied()
         {
             return View();
         }
 
-        [AllowAnonymous]
+        
         public IActionResult Login()
         {
               
@@ -42,7 +42,7 @@ namespace gestao_de_locacao.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        
         public async Task <IActionResult> Login(Usuario usuario)
         {
             var dados = await _context.Usuarios.FindAsync(usuario.Id);
@@ -86,7 +86,7 @@ namespace gestao_de_locacao.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+       
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();

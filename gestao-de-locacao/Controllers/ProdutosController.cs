@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace gestao_de_locacao.Controllers
 {
-    [Authorize]
+    
     public class ProdutosController : Controller
     {
         private readonly AppDbContext _context;
